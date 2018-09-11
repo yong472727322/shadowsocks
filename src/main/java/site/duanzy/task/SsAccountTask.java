@@ -30,8 +30,7 @@ public class SsAccountTask {
      * 每分钟定时判断账号是否过期
      * @return
      */
-//    @Scheduled(cron = "0 0/1 * * * ?")
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void judgeAccount(){
 
         //查询过期账号

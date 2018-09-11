@@ -289,7 +289,7 @@ public class FileUtil {
      * @return
      */
     public int restartSs(){
-        String s = execShell(" ss-restart.sh " );
+        String s = execShell(" /root/ss-restart.sh " );
         log.info("重启SS，结果[{}]",s);
         if(s.contains("started")){
             return 1;

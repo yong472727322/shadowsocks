@@ -39,12 +39,11 @@ public class ShadowsocksApplication implements CommandLineRunner{
 	 */
 	@Override
 	public void run(String... args) throws Exception {
-if(true)return;
 		List<Ss> allAccount = service.getAllAccount();
 
 		Set<String> filePorts = fileUtil.getFilePorts();
 
-		log.info("判断 是否存在 文件中存在，数据库不存在 的数据");
+		log.info("初始化 判断 是否存在 文件中存在，数据库不存在 的数据");
 		//文件中存在 ，数据库不存在，直接删除
 		for(String str : filePorts){
 			int i1 = Integer.parseInt(str);
@@ -56,18 +55,18 @@ if(true)return;
 				}
 			}
 			if(0 == i){
-				log.info("端口[{}]文件中存在,数据库不存在，直接删除",str);
+				log.info("初始化 端口[{}]文件中存在,数据库不存在，直接删除",str);
 				service.delConfigAccount(i1);
 			}
 		}
 
 		//文件中不存在 ， 数据库存在，添加
-		log.info("判断 是否存在 文件中不存在，数据库存在 的数据");
+		log.info("初始化 判断 是否存在 文件中不存在，数据库存在 的数据");
 		for(Ss ss : allAccount){
 			Integer port = ss.getPort();
 			if(!filePorts.contains(String.valueOf(port))){
 				//添加
-				log.info("端口[{}]文件中不存在,数据库存在，添加",port);
+				log.info("初始化 端口[{}]文件中不存在,数据库存在，添加",port);
 				service.addAccount(port,ss.getPassword());
 			}
 		}
