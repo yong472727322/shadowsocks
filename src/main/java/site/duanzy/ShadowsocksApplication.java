@@ -43,7 +43,7 @@ public class ShadowsocksApplication implements CommandLineRunner{
 
 		Set<String> filePorts = fileUtil.getFilePorts();
 
-		log.info("初始化 判断 是否存在 文件中存在，数据库不存在 的数据");
+		log.info("初始化 判断 是否存在 文件[{}]中存在，数据库[{}]不存在 的数据",filePorts.size(),allAccount.size());
 		//文件中存在 ，数据库不存在，直接删除
 		for(String str : filePorts){
 			int i1 = Integer.parseInt(str);

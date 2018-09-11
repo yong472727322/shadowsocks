@@ -116,10 +116,11 @@
     <if test="endTime != null">
       AND t.end_time &lt; now()
     </if>
+    AND t.status=1
   </select>
 
   <delete id="deleteByPort">
-    DELETE FROM ss WHERE port=#{port}
+    update ss set status=0,updated_time=now() where port=#{port}
   </delete>
 
 </mapper>

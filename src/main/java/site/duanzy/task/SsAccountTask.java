@@ -38,12 +38,12 @@ public class SsAccountTask {
         log.info("每分钟定时判断账号是否过期，过期数量[{}]",notExpiredAccount.size());
         for (Ss ss : notExpiredAccount){
 
-            log.info("账号[]过期，删除",ss.getPort());
+            log.info("账号[{}]过期，删除",ss.getPort());
             int i = service.delAccountByPort(ss.getPort());
             if(1 == i){
-                log.info("账号[]过期，删除成功",ss.getPort());
+                log.info("账号[{}]过期，删除成功",ss.getPort());
             }else {
-                log.info("账号[]过期，删除失败",ss.getPort());
+                log.info("账号[{}]过期，删除失败",ss.getPort());
             }
 
         }
@@ -60,6 +60,8 @@ public class SsAccountTask {
                 service.addAccount(port,ss.getPassword());
             }
         }
+        //打印空行，隔开日志
+        System.out.println();
 
     }
 

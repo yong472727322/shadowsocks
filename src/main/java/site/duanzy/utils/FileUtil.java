@@ -291,7 +291,7 @@ public class FileUtil {
     public int restartSs(){
         String s = execShell(" /root/ss-restart.sh " );
         log.info("重启SS，结果[{}]",s);
-        if(s.contains("started")){
+        if(s.contains("started") || s.contains("stopped")){
             return 1;
         }
         return 0;
