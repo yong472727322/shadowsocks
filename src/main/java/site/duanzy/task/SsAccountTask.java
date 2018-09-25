@@ -27,6 +27,15 @@ public class SsAccountTask {
     private FileUtil fileUtil;
 
     /**
+     * 每天重启一次
+     * @return
+     */
+    @Scheduled(cron = "0 0 5 * * ?")
+    public void restartSS(){
+        log.info("每天重启一次SS");
+        fileUtil.restartSs();
+    }
+    /**
      * 每分钟定时判断账号是否过期
      * @return
      */
